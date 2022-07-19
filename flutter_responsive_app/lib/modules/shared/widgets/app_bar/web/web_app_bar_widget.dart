@@ -14,13 +14,13 @@ class _WebAppBarWidgetState extends State<WebAppBarWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return PreferredSize(
-      preferredSize: const Size.fromHeight(100.0),
-      child: AppBar(
-        elevation: 5,
-        backgroundColor: Colors.black,
-        toolbarHeight: 100.0,
-        title: Center(
+    return AppBar(
+      elevation: 5,
+      backgroundColor: Colors.black,
+      toolbarHeight: 100.0,
+      title: ConstrainedBox(
+        constraints: const BoxConstraints(maxWidth: 1400),
+        child: Center(
           child: Padding(
             padding: const EdgeInsets.only(top: 25.0),
             child: Row(
@@ -45,31 +45,31 @@ class _WebAppBarWidgetState extends State<WebAppBarWidget> {
             ),
           ),
         ),
-        bottom: PreferredSize(
-          preferredSize: const Size.fromHeight(50.0),
-          child: Container(
-            padding: const EdgeInsets.all(5.0),
-            child: FittedBox(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: List.generate(
-                  10,
-                  (index) {
-                    return Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                      child: TextButton(
-                        child: Text(
-                          "Categoria $index",
-                          style: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 13.0,
-                          ),
+      ),
+      bottom: PreferredSize(
+        preferredSize: const Size.fromHeight(50.0),
+        child: Container(
+          padding: const EdgeInsets.all(5.0),
+          child: FittedBox(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: List.generate(
+                10,
+                (index) {
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                    child: TextButton(
+                      child: Text(
+                        "Categoria $index",
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 13.0,
                         ),
-                        onPressed: () {},
                       ),
-                    );
-                  },
-                ),
+                      onPressed: () {},
+                    ),
+                  );
+                },
               ),
             ),
           ),
